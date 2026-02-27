@@ -157,8 +157,9 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
-            document.addEventListener('keydown', e => keys[e.key.toLowerCase()] = true);
-            document.addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
+            // e.key 대신 e.code를 사용하여 한/영 전환 상태와 무관하게 물리적 키를 감지합니다.
+            document.addEventListener('keydown', e => keys[e.code] = true);
+            document.addEventListener('keyup', e => keys[e.code] = false);
             
             document.getElementById('restart-btn').addEventListener('click', () => {
                 document.getElementById('win-modal').style.display = 'none';
@@ -345,17 +346,19 @@
             if (gameWon) return;
 
             if (!p1.moving) {
-                if (keys['w']) tryMove(p1, 'up');
-                else if (keys['s']) tryMove(p1, 'down');
-                else if (keys['a']) tryMove(p1, 'left');
-                else if (keys['d']) tryMove(p1, 'right');
+                // e.code 값에 맞게 KeyW, KeyS, KeyA, KeyD로 변경
+                if (keys['KeyW']) tryMove(p1, 'up');
+                else if (keys['KeyS']) tryMove(p1, 'down');
+                else if (keys['KeyA']) tryMove(p1, 'left');
+                else if (keys['KeyD']) tryMove(p1, 'right');
             }
 
             if (!p2.moving) {
-                if (keys['arrowup']) tryMove(p2, 'up');
-                else if (keys['arrowdown']) tryMove(p2, 'down');
-                else if (keys['arrowleft']) tryMove(p2, 'left');
-                else if (keys['arrowright']) tryMove(p2, 'right');
+                // e.code 값에 맞게 대소문자 정확히 매칭
+                if (keys['ArrowUp']) tryMove(p2, 'up');
+                else if (keys['ArrowDown']) tryMove(p2, 'down');
+                else if (keys['ArrowLeft']) tryMove(p2, 'left');
+                else if (keys['ArrowRight']) tryMove(p2, 'right');
             }
         }
 
