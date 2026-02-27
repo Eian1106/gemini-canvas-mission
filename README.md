@@ -47,7 +47,7 @@ Gemini Canvas 미션 결과물을 관리하는 저장소입니다.
 
 ### 앱 이름: 2인용 미로 빨리 탈출하기
 
-### 배포 링크: https://gemini.google.com/share/19cebcc22ee6
+### 배포 링크: https://gemini.google.com/share/91a6c2228a18
 
 ### 이 앱을 만든 이유
 
